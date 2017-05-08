@@ -6561,7 +6561,7 @@ ssize_t nghttp2_session_mem_recv(nghttp2_session *session, const uint8_t *in,
 }
 
 int nghttp2_session_recv(nghttp2_session *session) {
-  uint8_t buf[NGHTTP2_INBOUND_BUFFER_LENGTH];
+  static uint8_t buf[NGHTTP2_INBOUND_BUFFER_LENGTH];
   while (1) {
     ssize_t readlen;
     readlen = session_recv(session, buf, sizeof(buf));
